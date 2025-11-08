@@ -52,22 +52,31 @@ main .cards-fem,
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding: 50px 0 100px;
+  padding: 50px;
 }
-
+main .cards-fem {
+  background-color: $bg-rose;
+}
+main .cards-masc {
+  background-color: $bg-blue;
+  .cards {
+    justify-content: center;
+  }
+}
 main .cards {
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
+  margin: 50px auto;
   width: 1000px;
   gap: 30px;
   .card {
     text-align: center;
-    background-color: #2769a3;
+    background-color: $white;
     width: 300px;
     height: 450px;
     padding: 20px 10px;
     border-radius: 24px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
     img {
       width: 105px;
@@ -78,9 +87,12 @@ main .cards {
       font-size: 1.5rem;
       margin-bottom: 30px;
     }
-    ul li {
-      text-align: left;
-      margin-top: 10px;
+    ul {
+      list-style-position: inside;
+      li {
+        text-align: left;
+        margin-top: 10px;
+      }
     }
   }
 }

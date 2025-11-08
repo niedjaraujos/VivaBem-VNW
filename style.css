@@ -9,6 +9,7 @@ body {
   width: 100vw;
   font-family: "Roboto", sans-serif;
   background-color: #ffffff;
+  height: 100vh;
 }
 body a {
   color: #ffffff;
@@ -16,6 +17,46 @@ body a {
 }
 body h2 {
   font-size: 3rem;
+  font-family: "Inter", sans-serif;
+}
+
+main .cards-intro {
+  background-color: #f8f9fa;
+  padding: 100px;
+  font-family: "Inter", sans-serif;
+}
+main .cards-intro .cards-intro_import {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 1200px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+main .cards-intro .cards-intro_import p {
+  text-align: center;
+  width: 90%;
+  font-size: 1.3rem;
+}
+main .cards-intro .cards-intro_import .cards-import {
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+}
+main .cards-intro .cards-intro_import .cards-import .cards-import_card {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+main .cards-intro .cards-intro_import .cards-import .cards-import_card h3 {
+  font-size: 1.5rem;
 }
 
 main .cards-fem,
@@ -150,6 +191,9 @@ footer .footer-top div h3 {
 footer .footer-top div ul li {
   margin-bottom: 12px;
   list-style: none;
+}
+footer .footer-top div ul li:hover {
+  text-decoration: underline;
 }
 footer .footer-top .pBottom {
   width: 320px;

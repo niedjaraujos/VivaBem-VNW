@@ -38,6 +38,7 @@ body {
   width: 100vw;
   font-family: 'Roboto', sans-serif;
   background-color: $white;
+  height: 100vh;
 
   a {
     color: $white;
@@ -45,6 +46,49 @@ body {
   }
   h2 {
     font-size: 3rem;
+    font-family: 'Inter', sans-serif;
+  }
+}
+main .cards-intro {
+  background-color: $bg-blue;
+  padding: 100px;
+  font-family: 'Inter', sans-serif;
+
+  .cards-intro_import {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 1200px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    p {
+      text-align: center;
+      width: 90%;
+      font-size: 1.3rem;
+    }
+    .cards-import {
+      width: inherit;
+      display: flex;
+      justify-content: space-between;
+
+      .cards-import_card {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        background-color: $white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+
+        h3 {
+          font-size: 1.5rem;
+        }
+      }
+    }
   }
 }
 main .cards-fem,
@@ -178,6 +222,10 @@ footer {
       ul li {
         margin-bottom: 12px;
         list-style: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
 

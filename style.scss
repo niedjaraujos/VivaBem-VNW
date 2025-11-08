@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,700;1,100;1,200&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -37,4 +38,50 @@ $color-fucsia: #9308859e;
 
 body {
   width: 100vw;
+  font-family: 'Roboto', sans-serif;
+
+  a {
+    color: $white;
+  }
+}
+
+footer {
+  background-color: $blue-darkness;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: $white;
+  font-family: 'Poppins', sans-serif;
+
+  .footer-top {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px 0 14px 0;
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      img {
+        width: 180px;
+        margin-bottom: 8px;
+      }
+      h3 {
+        margin: 12px 0;
+      }
+      ul li {
+        margin-bottom: 12px;
+      }
+    }
+
+    .pBottom {
+      width: 320px;
+      padding: 10px 0;
+    }
+  }
+  .footer-bottom {
+    border-top: 1px solid #9fabbc;
+    text-align: center;
+    padding: 30px;
+  }
 }

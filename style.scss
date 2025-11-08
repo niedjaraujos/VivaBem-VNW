@@ -39,12 +39,68 @@ $color-fucsia: #9308859e;
 body {
   width: 100vw;
   font-family: 'Roboto', sans-serif;
+  background-color: $white;
 
   a {
     color: $white;
   }
 }
+main .cards-alertImport {
+  text-align: center;
+  padding: 20px 0;
+  h2 {
+    font-size: 3rem;
+  }
+  .cards-alerts {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1260px;
+    justify-content: center;
+    margin: 50px auto;
 
+    .pink {
+      color: $card-color-rosa;
+      background-color: $card-rosa;
+    }
+    .blue {
+      color: $card-color-blue;
+      background-color: $card-blue;
+    }
+    .green {
+      color: $card-color-green;
+      background-color: $card-green;
+    }
+    .orange {
+      color: $card-color-orange;
+      background-color: $card-orange;
+    }
+  }
+}
+main .cards-alert_card {
+  width: 550px;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 40px;
+
+  p {
+    font-size: 1.22rem;
+  }
+
+  .cards-alert_title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    img {
+      width: 40px;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+}
 footer {
   background-color: $blue-darkness;
   display: flex;

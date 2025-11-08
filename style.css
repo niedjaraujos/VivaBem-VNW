@@ -10,9 +10,65 @@
 body {
   width: 100vw;
   font-family: "Roboto", sans-serif;
+  background-color: #ffffff;
 }
 body a {
   color: #ffffff;
+}
+
+main .cards-alertImport {
+  text-align: center;
+  padding: 20px 0;
+}
+main .cards-alertImport h2 {
+  font-size: 3rem;
+}
+main .cards-alertImport .cards-alerts {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1260px;
+  justify-content: center;
+  margin: 50px auto;
+}
+main .cards-alertImport .cards-alerts .pink {
+  color: #ad346a;
+  background-color: #f9d5e5;
+}
+main .cards-alertImport .cards-alerts .blue {
+  color: #2769a3;
+  background-color: #cfe2f3;
+}
+main .cards-alertImport .cards-alerts .green {
+  color: #244a2d;
+  background-color: #d4edda;
+}
+main .cards-alertImport .cards-alerts .orange {
+  color: #976c00;
+  background-color: #ffe9c2;
+}
+
+main .cards-alert_card {
+  width: 550px;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 40px;
+}
+main .cards-alert_card p {
+  font-size: 1.22rem;
+}
+main .cards-alert_card .cards-alert_title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+main .cards-alert_card .cards-alert_title img {
+  width: 40px;
+}
+main .cards-alert_card .cards-alert_title h3 {
+  font-size: 1.5rem;
 }
 
 footer {

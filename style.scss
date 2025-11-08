@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+$white: #ffffff;
+$black: #000000;
+$bg-rose: #fdefef;
+$bg-blue: #f8f9fa;
+$blue-darkness: #313461;
+$color-blue: #1173d4;
+$gradient-blue: #4247a2;
+$gradient-green: #52b095;
+$color-green: #33cc73;
+$font-darkness: #04031c;
+
+//cards
+$card-blue: #cfe2f3;
+$card-color-blue: #2769a3;
+$card-rosa: #f9d5e5;
+$card-color-rosa: #ad346a;
+$card-green: #d4edda;
+$card-color-green: #244a2d;
+$card-orange: #ffe9c2;
+$card-color-orange: #976c00;
+
+//linear gradient feminino
+$color-pink: #d038aac0;
+$color-rosa: #f9016f8a;
+$color-roxo: #851c87;
+$color-fucsia: #9308859e;
+
+//linear gradient masc #3373D2 #6F95C7 #7BB5F5 #0074EE #5EA7EF
+
+body {
+  width: 100vw;
+}

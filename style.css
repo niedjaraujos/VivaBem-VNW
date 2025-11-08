@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  list-style: none;
   text-decoration: none;
 }
 
@@ -14,6 +13,15 @@ body {
 }
 body a {
   color: #ffffff;
+}
+
+.teste {
+  text-align: center;
+}
+.teste img {
+  width: 105px;
+  height: 105px;
+  border-radius: 100px;
 }
 
 main .cards-alertImport {
@@ -98,6 +106,7 @@ footer .footer-top div h3 {
 }
 footer .footer-top div ul li {
   margin-bottom: 12px;
+  list-style: none;
 }
 footer .footer-top .pBottom {
   width: 320px;

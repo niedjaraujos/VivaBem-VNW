@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  list-style: none;
   text-decoration: none;
 }
 
@@ -43,6 +42,14 @@ body {
 
   a {
     color: $white;
+  }
+}
+.teste {
+  text-align: center;
+  img {
+    width: 105px;
+    height: 105px;
+    border-radius: 100px;
   }
 }
 main .cards-alertImport {
@@ -127,6 +134,7 @@ footer {
       }
       ul li {
         margin-bottom: 12px;
+        list-style: none;
       }
     }
 

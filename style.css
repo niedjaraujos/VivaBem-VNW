@@ -25,24 +25,38 @@ main .cards-intro {
   padding: 100px;
   font-family: "Inter", sans-serif;
 }
+@media (max-width: 440px) {
+  main .cards-intro {
+    padding: 20px;
+  }
+}
 main .cards-intro .cards-intro_import {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  width: 1200px;
-  justify-content: center;
   align-items: center;
-  margin: auto;
+  text-align: center;
+  gap: 50px;
 }
 main .cards-intro .cards-intro_import p {
   text-align: center;
-  width: 90%;
+  width: 70%;
   font-size: 1.3rem;
 }
+@media (max-width: 440px) {
+  main .cards-intro .cards-intro_import p {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+}
 main .cards-intro .cards-intro_import .cards-import {
-  width: inherit;
   display: flex;
-  justify-content: space-between;
+  gap: 50px;
+}
+@media (max-width: 440px) {
+  main .cards-intro .cards-intro_import .cards-import {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 main .cards-intro .cards-intro_import .cards-import .cards-import_card {
   width: 350px;
@@ -55,35 +69,61 @@ main .cards-intro .cards-intro_import .cards-import .cards-import_card {
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
+@media (max-width: 440px) {
+  main .cards-intro .cards-intro_import .cards-import .cards-import_card {
+    width: 320px;
+  }
+}
 main .cards-intro .cards-intro_import .cards-import .cards-import_card h3 {
   font-size: 1.5rem;
 }
 
-main .cards-fem,
-.cards-masc {
-  text-align: center;
+main .preventivo-feminino,
+.preventivo-masculino {
   display: flex;
-  flex-direction: column;
-  padding: 50px;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 100px;
+}
+@media (max-width: 440px) {
+  main .preventivo-feminino,
+  .preventivo-masculino {
+    padding: 10px;
+  }
+}
+main .preventivo-feminino .preventivo-container,
+.preventivo-masculino .preventivo-container {
+  width: 80%;
+}
+@media (max-width: 440px) {
+  main .preventivo-feminino .preventivo-container,
+  .preventivo-masculino .preventivo-container {
+    width: 90%;
+  }
 }
 
-main .cards-fem {
+main .preventivo-feminino {
   background-color: #fdefef;
 }
 
-main .cards-masc {
+main .preventivo-masculino {
   background-color: #f8f9fa;
 }
-main .cards-masc .cards {
+main .preventivo-masculino .cards {
   justify-content: center;
 }
 
 main .cards {
   display: flex;
   flex-wrap: wrap;
-  margin: 50px auto;
-  width: 1000px;
-  gap: 30px;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 50px;
+}
+@media (max-width: 440px) {
+  main .cards {
+    flex-direction: column;
+  }
 }
 main .cards .card {
   text-align: center;
@@ -112,29 +152,43 @@ main .cards .card ul li {
 }
 
 main .cards-alertImport {
-  text-align: center;
-  padding: 20px 0;
+  padding: 70px 100px;
 }
-main .cards-alertImport .cards-alerts {
+@media (max-width: 440px) {
+  main .cards-alertImport {
+    padding: 20px;
+  }
+}
+main .cards-alertImport .alert-container {
   display: flex;
-  flex-wrap: wrap;
-  width: 1260px;
-  justify-content: center;
-  margin: 50px auto;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
 }
-main .cards-alertImport .cards-alerts .pink {
+main .cards-alertImport .alert-container .cards-alerts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media (max-width: 440px) {
+  main .cards-alertImport .alert-container .cards-alerts {
+    flex-direction: column;
+  }
+}
+main .cards-alertImport .alert-container .cards-alerts .pink {
   color: #ad346a;
   background-color: #f9d5e5;
 }
-main .cards-alertImport .cards-alerts .blue {
+main .cards-alertImport .alert-container .cards-alerts .blue {
   color: #2769a3;
   background-color: #cfe2f3;
 }
-main .cards-alertImport .cards-alerts .green {
+main .cards-alertImport .alert-container .cards-alerts .green {
   color: #244a2d;
   background-color: #d4edda;
 }
-main .cards-alertImport .cards-alerts .orange {
+main .cards-alertImport .alert-container .cards-alerts .orange {
   color: #976c00;
   background-color: #ffe9c2;
 }
@@ -146,6 +200,12 @@ main .cards-alert_card {
   display: flex;
   flex-direction: column;
   margin: 10px 40px;
+}
+@media (max-width: 440px) {
+  main .cards-alert_card {
+    width: 340px;
+    padding: 10px;
+  }
 }
 main .cards-alert_card p {
   font-size: 1.22rem;
@@ -162,6 +222,11 @@ main .cards-alert_card .cards-alert_title img {
 main .cards-alert_card .cards-alert_title h3 {
   font-size: 1.5rem;
 }
+@media (max-width: 440px) {
+  main .cards-alert_card .cards-alert_title h3 {
+    font-size: 1.25rem;
+  }
+}
 
 footer {
   background-color: #313461;
@@ -171,10 +236,22 @@ footer {
   color: #ffffff;
   font-family: "Poppins", sans-serif;
 }
+@media (max-width: 440px) {
+  footer {
+    align-items: center;
+  }
+}
 footer .footer-top {
   display: flex;
   justify-content: space-evenly;
   padding: 50px 0 14px 0;
+}
+@media (max-width: 440px) {
+  footer .footer-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
 }
 footer .footer-top div {
   display: flex;
@@ -185,8 +262,18 @@ footer .footer-top div img {
   width: 180px;
   margin-bottom: 8px;
 }
+@media (max-width: 440px) {
+  footer .footer-top div img {
+    margin: auto;
+  }
+}
 footer .footer-top div h3 {
   margin: 12px 0;
+}
+@media (max-width: 440px) {
+  footer .footer-top div h3 {
+    margin: 5px;
+  }
 }
 footer .footer-top div ul li {
   margin-bottom: 12px;

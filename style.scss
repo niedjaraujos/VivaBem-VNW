@@ -12,8 +12,8 @@ $bg-blue: #f8f9fa;
 $blue-darkness: #313461;
 $color-blue: #1173d4;
 $gradient-blue: #4247a2;
-$gradient-green: #52b095;
-$color-green: #33cc73;
+$gradient-green-bg: #52b095;
+$gradient-green: #33cc73;
 $font-darkness: #04031c;
 
 //cards
@@ -26,16 +26,15 @@ $card-color-green: #244a2d;
 $card-orange: #ffe9c2;
 $card-color-orange: #976c00;
 
-//linear gradient feminino
-$color-pink: #d038aac0;
-$color-rosa: #f9016f8a;
-$color-roxo: #851c87;
-$color-fucsia: #9308859e;
-
-//linear gradient masc #3373D2 #6F95C7 #7BB5F5 #0074EE #5EA7EF
+@mixin gradient {
+  background: linear-gradient(to left, $gradient-green, $gradient-blue);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
 
 body {
-  width: 100vw;
   font-family: 'Roboto', sans-serif;
   background-color: $white;
   height: 100vh;
@@ -47,9 +46,83 @@ body {
   h2 {
     font-size: 3rem;
     font-family: 'Inter', sans-serif;
+    @include gradient;
   }
 }
 
+header {
+  background-image: url('/assets/bannerHeader.png');
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    width: 1260px;
+    margin: auto;
+
+    nav {
+      margin: 70px 0;
+
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border-radius: 50px;
+      background: linear-gradient(
+        to right,
+        $gradient-blue 0%,
+        $gradient-green-bg 100%
+      );
+      img {
+        margin-left: -100px;
+        width: 200px;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: 40px;
+        font-size: 1.5rem;
+        margin-left: -100px;
+      }
+    }
+
+    .header-title {
+      width: 700px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      h1 {
+        font-size: 3.5rem;
+        @include gradient;
+      }
+      p {
+        font-size: 2rem;
+        font-weight: 400;
+        width: 500px;
+        margin-bottom: 40px;
+      }
+      .header-btn a {
+        border-radius: 14px;
+        padding: 0.7rem 3rem;
+        font-size: 1.2rem;
+      }
+      a:nth-child(1) {
+        background-color: $color-blue;
+        border: 1px solid $color-blue;
+        margin-right: 30px;
+      }
+      a:nth-child(2) {
+        border: 1px solid $color-blue;
+        color: $color-blue;
+      }
+    }
+  }
+}
+
+//main
 //section exames de rotina
 main .cards-intro {
   background-color: $bg-blue;
@@ -112,24 +185,54 @@ main .preventivo-feminino,
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 70px 100px;
+  padding: 4rem 2rem;
 
   @media (max-width: 440px) {
     padding: 10px;
   }
 
   .preventivo-container {
-    width: 80%;
+    width: 1280px;
+
     @media (max-width: 440px) {
       width: 90%;
+      margin-inline: auto;
     }
   }
 }
 main .preventivo-feminino {
   background-color: $bg-rose;
+  h2 {
+    background: linear-gradient(
+      to left,
+      rgba(249, 1, 111, 0.54),
+      rgba(147, 8, 133, 0.62),
+      rgba(208, 56, 170, 0.75),
+      rgba(133, 28, 135, 1)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
 }
 main .preventivo-masculino {
   background-color: $bg-blue;
+
+  h2 {
+    background: linear-gradient(
+      to left,
+      rgba(51, 115, 210, 1),
+      rgba(111, 149, 199, 1),
+      rgba(123, 181, 245, 1),
+      rgba(0, 116, 238, 1),
+      rgba(94, 167, 239, 1)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
   .cards {
     justify-content: center;
   }
@@ -143,6 +246,7 @@ main .cards {
 
   @media (max-width: 440px) {
     flex-direction: column;
+    align-items: center;
   }
   .card {
     text-align: center;
@@ -163,7 +267,7 @@ main .cards {
       margin-bottom: 30px;
     }
     ul {
-      list-style-position: inside;
+      margin-left: 20px;
       li {
         text-align: left;
         margin-top: 10px;

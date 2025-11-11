@@ -6,7 +6,6 @@
 }
 
 body {
-  width: 100vw;
   font-family: "Roboto", sans-serif;
   background-color: #ffffff;
   height: 100vh;
@@ -18,6 +17,79 @@ body a {
 body h2 {
   font-size: 3rem;
   font-family: "Inter", sans-serif;
+  background: linear-gradient(to left, #33cc73, #4247a2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+header {
+  background-image: url("/assets/bannerHeader.png");
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+header .header-content {
+  display: flex;
+  flex-direction: column;
+  width: 1260px;
+  margin: auto;
+}
+header .header-content nav {
+  margin: 70px 0;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 50px;
+  background: linear-gradient(to right, #4247a2 0%, #52b095 100%);
+}
+header .header-content nav img {
+  margin-left: -100px;
+  width: 200px;
+}
+header .header-content nav .nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 40px;
+  font-size: 1.5rem;
+  margin-left: -100px;
+}
+header .header-content .header-title {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+header .header-content .header-title h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(to left, #33cc73, #4247a2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+header .header-content .header-title p {
+  font-size: 2rem;
+  font-weight: 400;
+  width: 500px;
+  margin-bottom: 40px;
+}
+header .header-content .header-title .header-btn a {
+  border-radius: 14px;
+  padding: 0.7rem 3rem;
+  font-size: 1.2rem;
+}
+header .header-content .header-title a:nth-child(1) {
+  background-color: #1173d4;
+  border: 1px solid #1173d4;
+  margin-right: 30px;
+}
+header .header-content .header-title a:nth-child(2) {
+  border: 1px solid #1173d4;
+  color: #1173d4;
 }
 
 main .cards-intro {
@@ -83,7 +155,7 @@ main .preventivo-feminino,
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 70px 100px;
+  padding: 4rem 2rem;
 }
 @media (max-width: 440px) {
   main .preventivo-feminino,
@@ -93,21 +165,36 @@ main .preventivo-feminino,
 }
 main .preventivo-feminino .preventivo-container,
 .preventivo-masculino .preventivo-container {
-  width: 80%;
+  width: 1280px;
 }
 @media (max-width: 440px) {
   main .preventivo-feminino .preventivo-container,
   .preventivo-masculino .preventivo-container {
     width: 90%;
+    margin-inline: auto;
   }
 }
 
 main .preventivo-feminino {
   background-color: #fdefef;
 }
+main .preventivo-feminino h2 {
+  background: linear-gradient(to left, rgba(249, 1, 111, 0.54), rgba(147, 8, 133, 0.62), rgba(208, 56, 170, 0.75), rgb(133, 28, 135));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
 
 main .preventivo-masculino {
   background-color: #f8f9fa;
+}
+main .preventivo-masculino h2 {
+  background: linear-gradient(to left, rgb(51, 115, 210), rgb(111, 149, 199), rgb(123, 181, 245), rgb(0, 116, 238), rgb(94, 167, 239));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 main .preventivo-masculino .cards {
   justify-content: center;
@@ -123,6 +210,7 @@ main .cards {
 @media (max-width: 440px) {
   main .cards {
     flex-direction: column;
+    align-items: center;
   }
 }
 main .cards .card {
@@ -144,7 +232,7 @@ main .cards .card h3 {
   margin-bottom: 30px;
 }
 main .cards .card ul {
-  list-style-position: inside;
+  margin-left: 20px;
 }
 main .cards .card ul li {
   text-align: left;

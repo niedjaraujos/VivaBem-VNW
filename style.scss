@@ -403,7 +403,7 @@ main .cards-alertImport {
 
   @include mobile {
     flex-direction: column;
-    padding: 4rem 2rem;
+    padding: 2rem;
   }
 
   .pink {
@@ -437,7 +437,7 @@ main .cards-alertImport {
   }
 }
 main .cards-alert_card {
-  width: 550px;
+  max-width: 550px;
   border-radius: 12px;
   padding: 30px;
   @include column;
@@ -445,13 +445,16 @@ main .cards-alert_card {
   transition: 0.5s;
 
   @include mobile {
-    width: 80%;
+    width: 100%;
     padding: 10px;
-    margin: 10px;
+    margin: 10px auto;
   }
 
   p {
     font-size: 1.22rem;
+    @include mobile {
+      font-size: 1rem;
+    }
   }
 }
 .cards-alert_title {

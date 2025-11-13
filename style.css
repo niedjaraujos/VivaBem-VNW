@@ -346,7 +346,7 @@ main .cards-alertImport .alert-container {
 @media (max-width: 480px) {
   .cards-alerts {
     flex-direction: column;
-    padding: 4rem 2rem;
+    padding: 2rem;
   }
 }
 .cards-alerts .pink {
@@ -379,7 +379,7 @@ main .cards-alertImport .alert-container {
 }
 
 main .cards-alert_card {
-  width: 550px;
+  max-width: 550px;
   border-radius: 12px;
   padding: 30px;
   display: flex;
@@ -389,13 +389,18 @@ main .cards-alert_card {
 }
 @media (max-width: 480px) {
   main .cards-alert_card {
-    width: 80%;
+    width: 100%;
     padding: 10px;
-    margin: 10px;
+    margin: 10px auto;
   }
 }
 main .cards-alert_card p {
   font-size: 1.22rem;
+}
+@media (max-width: 480px) {
+  main .cards-alert_card p {
+    font-size: 1rem;
+  }
 }
 
 .cards-alert_title {

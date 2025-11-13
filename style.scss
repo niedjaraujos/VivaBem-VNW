@@ -132,6 +132,11 @@ header {
   font-size: 1.5rem;
   gap: 2rem;
 }
+
+li a {
+  margin-right: 20px;
+}
+
 .header-title {
   @include column;
   width: 700px;

@@ -65,6 +65,10 @@ header {
   gap: 2rem;
 }
 
+li a {
+  margin-right: 20px;
+}
+
 .header-title {
   display: flex;
   flex-direction: column;

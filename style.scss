@@ -133,6 +133,8 @@ header {
   @include around;
   list-style: none;
   font-size: 1.5rem;
+  gap: 2rem;
+}
 
   li a {
     margin-right: 20px;

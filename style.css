@@ -64,6 +64,9 @@ header {
   font-size: 1.5rem;
   gap: 2rem;
 }
+.nav-links a:hover {
+  text-shadow: 0 0 4px #ffffff;
+}
 
 .header-title {
   display: flex;

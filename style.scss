@@ -133,10 +133,6 @@ header {
   gap: 2rem;
 }
 
-li a {
-  margin-right: 20px;
-}
-
 .header-title {
   @include column;
   width: 700px;
@@ -191,6 +187,7 @@ li a {
       }
       .nav-links {
         font-size: 1rem;
+        gap: 1rem;
 
         li {
           font-size: 0.875rem;
@@ -231,6 +228,7 @@ main .cards-intro {
   background-color: $bg-blue;
   padding: 6rem;
   font-family: 'Inter', sans-serif;
+
   @include mobile {
     padding: 1.25rem;
   }
@@ -392,7 +390,7 @@ main .cards-alertImport {
     @include center;
     flex-direction: column;
     text-align: center;
-    gap: 30px;
+    gap: 2rem;
   }
 }
 .cards-alerts {
@@ -401,6 +399,7 @@ main .cards-alertImport {
 
   @include mobile {
     flex-direction: column;
+    padding: 4rem 2rem;
   }
 
   .pink {
@@ -442,8 +441,9 @@ main .cards-alert_card {
   transition: 0.5s;
 
   @include mobile {
-    width: 340px;
+    width: 80%;
     padding: 10px;
+    margin: 10px;
   }
 
   p {

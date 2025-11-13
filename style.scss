@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,700;1,100;1,200&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -26,18 +27,59 @@ $card-color-green: #244a2d;
 $card-orange: #ffe9c2;
 $card-color-orange: #976c00;
 
-@mixin gradient {
-  background: linear-gradient(to left, $gradient-green, $gradient-blue);
+$mobile-width: 480px;
+$tablet-width: 768px;
+
+//mixins
+
+@mixin mobile {
+  @media (max-width: $mobile-width) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin width {
+  max-width: 1280px;
+  width: 100%;
+}
+
+@mixin around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin gradient($gradient-value) {
+  background: $gradient-value;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
-
+@mixin shadow($shadow-value) {
+  box-shadow: 0 0 10px $shadow-value;
+}
 body {
   font-family: 'Roboto', sans-serif;
   background-color: $white;
-  height: 100vh;
+  min-height: 100vh;
 
   a {
     color: $white;
@@ -46,7 +88,11 @@ body {
   h2 {
     font-size: 3rem;
     font-family: 'Inter', sans-serif;
-    @include gradient;
+    font-weight: 700;
+    text-align: center;
+    @include gradient(
+      linear-gradient(to left, $gradient-green, $gradient-blue)
+    );
   }
 }
 
@@ -55,68 +101,125 @@ header {
   height: 80vh;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
 
+.header-content {
+  display: flex;
+  flex-direction: column;
+  @include width;
+  width: 100%;
+  margin: auto;
+
+  nav {
+    @include around;
+    margin: 70px 0;
+    padding: 10px 0;
+    border-radius: 50px;
+    box-shadow: 6px 6px 10px 1px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(
+      to right,
+      $gradient-blue 0%,
+      $gradient-green-bg 100%
+    );
+    img {
+      width: 200px;
+    }
+  }
+}
+.nav-links {
+  @include around;
+  list-style: none;
+  font-size: 1.5rem;
+
+  li a {
+    margin-right: 20px;
+  }
+}
+.header-title {
+  @include column;
+  width: 700px;
+  gap: 20px;
+  h1 {
+    font-size: 3.5rem;
+    @include gradient(
+      linear-gradient(to left, $gradient-green, $gradient-blue)
+    );
+  }
+  p {
+    font-size: 2rem;
+    font-weight: 400;
+    width: 500px;
+    margin-bottom: 40px;
+  }
+  .header-btn a {
+    border-radius: 14px;
+    padding: 0.7rem 3rem;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    &:hover {
+      @include shadow($color-blue);
+    }
+  }
+  a:nth-child(1) {
+    background-color: $color-blue;
+    border: 1px solid $color-blue;
+    margin-right: 30px;
+  }
+  a:nth-child(2) {
+    border: 1px solid $color-blue;
+    color: $color-blue;
+  }
+}
+@include mobile {
+  header {
+    background: none;
+    background-attachment: scroll;
+  }
   .header-content {
-    display: flex;
-    flex-direction: column;
-    width: 1260px;
-    margin: auto;
+    max-width: $mobile-width;
+    text-align: center;
 
     nav {
-      margin: 70px 0;
-
-      padding: 10px 0;
-      display: flex;
+      width: 90%;
+      margin: 1rem auto;
       align-items: center;
-      justify-content: space-around;
-      border-radius: 50px;
-      background: linear-gradient(
-        to right,
-        $gradient-blue 0%,
-        $gradient-green-bg 100%
-      );
+
       img {
-        margin-left: -100px;
-        width: 200px;
+        width: 87px;
       }
       .nav-links {
-        display: flex;
-        align-items: center;
-        list-style: none;
-        gap: 40px;
-        font-size: 1.5rem;
-        margin-left: -100px;
+        font-size: 1rem;
+
+        li {
+          font-size: 0.875rem;
+          width: 96px;
+          white-space: nowrap;
+          overflow: hidden;
+        }
       }
     }
 
     .header-title {
-      width: 700px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+      width: 90%;
+      margin: 30px auto 0;
+
       h1 {
-        font-size: 3.5rem;
-        @include gradient;
+        font-size: 3rem;
+        text-align: center;
+        margin: 12px;
       }
       p {
-        font-size: 2rem;
-        font-weight: 400;
-        width: 500px;
-        margin-bottom: 40px;
+        width: 90%;
+        margin: 0 auto 20px;
+        font-size: 1.7rem;
+        text-align: center;
       }
       .header-btn a {
-        border-radius: 14px;
-        padding: 0.7rem 3rem;
-        font-size: 1.2rem;
-      }
-      a:nth-child(1) {
-        background-color: $color-blue;
-        border: 1px solid $color-blue;
-        margin-right: 30px;
-      }
-      a:nth-child(2) {
-        border: 1px solid $color-blue;
-        color: $color-blue;
+        padding: 1rem 0.7rem;
+        font-size: 1rem;
+        margin-right: 10px;
       }
     }
   }
@@ -126,196 +229,207 @@ header {
 //section exames de rotina
 main .cards-intro {
   background-color: $bg-blue;
-  padding: 100px;
+  padding: 6rem;
   font-family: 'Inter', sans-serif;
-  @media (max-width: 440px) {
-    padding: 20px;
+  @include mobile {
+    padding: 1.25rem;
   }
+}
+.cards-intro_import {
+  @include center;
+  flex-direction: column;
+  text-align: center;
+  gap: 3rem;
 
-  .cards-intro_import {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  p {
     text-align: center;
-    gap: 50px;
-
-    p {
-      text-align: center;
-      width: 70%;
-      font-size: 1.3rem;
-      @media (max-width: 440px) {
-        width: 100%;
-        font-size: 1.1rem;
-      }
+    width: 70%;
+    font-size: 1.3rem;
+    @include mobile {
+      width: 100%;
+      font-size: 1.1rem;
     }
-    .cards-import {
-      display: flex;
-      gap: 50px;
+  }
+}
+.cards-import {
+  display: flex;
+  gap: 50px;
 
-      @media (max-width: 440px) {
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .cards-import_card {
-        width: 350px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-        background-color: $white;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-        @media (max-width: 440px) {
-          width: 320px;
-        }
-
-        h3 {
-          font-size: 1.5rem;
-        }
-      }
-    }
+  @include mobile {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.cards-import_card {
+  width: 350px;
+  @include center;
+  flex-direction: column;
+  gap: 24px;
+  background-color: $white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  transition: 0.5s;
+  &:hover {
+    @include shadow($gradient-green);
+  }
+  @include mobile {
+    width: 320px;
+  }
+  h3 {
+    font-size: 1.5rem;
   }
 }
 
 //cards feminino e masculino
-main .preventivo-feminino,
-.preventivo-masculino {
-  display: flex;
-  justify-content: center;
+main .preventivo {
+  @include center;
   text-align: center;
   padding: 4rem 2rem;
 
-  @media (max-width: 440px) {
+  @include mobile {
     padding: 10px;
   }
+}
+.preventivo-container {
+  @include width;
 
-  .preventivo-container {
-    width: 1280px;
-
-    @media (max-width: 440px) {
-      width: 90%;
-      margin-inline: auto;
+  @include mobile {
+    width: 90%;
+    margin-inline: auto;
+  }
+}
+main .feminino {
+  background-color: $bg-rose;
+  h2 {
+    @include gradient(
+      linear-gradient(
+        to left,
+        rgba(249, 1, 111, 0.54),
+        rgba(147, 8, 133, 0.62),
+        rgba(208, 56, 170, 0.75),
+        rgba(133, 28, 135, 1)
+      )
+    );
+  }
+  .card {
+    &:hover {
+      @include shadow(rgba(249, 1, 111, 0.54));
     }
   }
 }
-main .preventivo-feminino {
-  background-color: $bg-rose;
-  h2 {
-    background: linear-gradient(
-      to left,
-      rgba(249, 1, 111, 0.54),
-      rgba(147, 8, 133, 0.62),
-      rgba(208, 56, 170, 0.75),
-      rgba(133, 28, 135, 1)
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
-}
-main .preventivo-masculino {
+main .masculino {
   background-color: $bg-blue;
-
   h2 {
-    background: linear-gradient(
-      to left,
-      rgba(51, 115, 210, 1),
-      rgba(111, 149, 199, 1),
-      rgba(123, 181, 245, 1),
-      rgba(0, 116, 238, 1),
-      rgba(94, 167, 239, 1)
+    @include gradient(
+      linear-gradient(
+        to left,
+        rgba(51, 115, 210, 1),
+        rgba(111, 149, 199, 1),
+        rgba(123, 181, 245, 1),
+        rgba(0, 116, 238, 1),
+        rgba(94, 167, 239, 1)
+      )
     );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
   }
   .cards {
     justify-content: center;
+    .card {
+      &:hover {
+        @include shadow(rgba(0, 116, 238, 1));
+      }
+    }
   }
 }
 main .cards {
-  display: flex;
+  @include center;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 50px;
   margin-top: 50px;
 
-  @media (max-width: 440px) {
+  @include mobile {
     flex-direction: column;
     align-items: center;
   }
-  .card {
-    text-align: center;
-    background-color: $white;
-    width: 300px;
-    height: 450px;
-    padding: 20px 10px;
-    border-radius: 24px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.card {
+  text-align: center;
+  background-color: $white;
+  width: 300px;
+  height: 450px;
+  padding: 20px 10px;
+  border-radius: 24px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.5s;
 
-    img {
-      width: 105px;
-      height: 105px;
-      border-radius: 100px;
-    }
-    h3 {
-      font-size: 1.5rem;
-      margin-bottom: 30px;
-    }
-    ul {
-      margin-left: 20px;
-      li {
-        text-align: left;
-        margin-top: 10px;
-      }
+  img {
+    width: 105px;
+    height: 105px;
+    border-radius: 100px;
+  }
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  ul {
+    margin-left: 20px;
+    li {
+      text-align: left;
+      margin-top: 10px;
     }
   }
 }
 
 //section alertas
 main .cards-alertImport {
-  padding: 70px 100px;
+  padding: 4rem 6rem;
 
-  @media (max-width: 440px) {
+  @include mobile {
     padding: 20px;
   }
 
   .alert-container {
-    display: flex;
+    @include center;
     flex-direction: column;
-    align-items: center;
     text-align: center;
     gap: 30px;
+  }
+}
+.cards-alerts {
+  @include center;
+  flex-wrap: wrap;
 
-    .cards-alerts {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+  @include mobile {
+    flex-direction: column;
+  }
 
-      @media (max-width: 440px) {
-        flex-direction: column;
-      }
+  .pink {
+    color: $card-color-rosa;
+    background-color: $card-rosa;
 
-      .pink {
-        color: $card-color-rosa;
-        background-color: $card-rosa;
-      }
-      .blue {
-        color: $card-color-blue;
-        background-color: $card-blue;
-      }
-      .green {
-        color: $card-color-green;
-        background-color: $card-green;
-      }
-      .orange {
-        color: $card-color-orange;
-        background-color: $card-orange;
-      }
+    &:hover {
+      @include shadow($card-color-rosa);
+    }
+  }
+  .blue {
+    color: $card-color-blue;
+    background-color: $card-blue;
+    &:hover {
+      @include shadow($card-color-blue);
+    }
+  }
+  .green {
+    color: $card-color-green;
+    background-color: $card-green;
+    &:hover {
+      @include shadow($card-color-green);
+    }
+  }
+  .orange {
+    color: $card-color-orange;
+    background-color: $card-orange;
+    &:hover {
+      @include shadow($card-color-orange);
     }
   }
 }
@@ -323,11 +437,11 @@ main .cards-alert_card {
   width: 550px;
   border-radius: 12px;
   padding: 30px;
-  display: flex;
-  flex-direction: column;
+  @include column;
   margin: 10px 40px;
+  transition: 0.5s;
 
-  @media (max-width: 440px) {
+  @include mobile {
     width: 340px;
     padding: 10px;
   }
@@ -335,83 +449,75 @@ main .cards-alert_card {
   p {
     font-size: 1.22rem;
   }
+}
+.cards-alert_title {
+  @include center;
+  gap: 8px;
+  margin-bottom: 10px;
 
-  .cards-alert_title {
-    display: flex;
+  img {
+    width: 40px;
+  }
+  h3 {
+    font-size: 1.5rem;
+    @include mobile {
+      font-size: 1.25rem;
+    }
+  }
+}
+//footer-rodapé
+footer {
+  background-color: $blue-darkness;
+  @include column;
+  gap: 2rem;
+  color: $white;
+  font-family: 'Poppins', sans-serif;
+  @include mobile {
     align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
+  }
+}
+.footer-top {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 3rem 0 0.875rem 0;
+
+  @include mobile {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  div {
+    @include column;
+    gap: 12px;
 
     img {
-      width: 40px;
+      width: 180px;
+      margin-bottom: 8px;
+      @include mobile {
+        margin: auto;
+      }
     }
     h3 {
-      font-size: 1.5rem;
-      @media (max-width: 440px) {
-        font-size: 1.25rem;
+      margin: 12px 0;
+      @include mobile {
+        margin: 5px;
+      }
+    }
+    ul li {
+      margin-bottom: 12px;
+      list-style: none;
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
 }
-
-//footer-rodapé
-footer {
-  background-color: $blue-darkness;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  color: $white;
-  font-family: 'Poppins', sans-serif;
-  @media (max-width: 440px) {
-    align-items: center;
-  }
-
-  .footer-top {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 50px 0 14px 0;
-
-    @media (max-width: 440px) {
-      flex-direction: column;
-      text-align: center;
-      gap: 30px;
-    }
-    div {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-
-      img {
-        width: 180px;
-        margin-bottom: 8px;
-        @media (max-width: 440px) {
-          margin: auto;
-        }
-      }
-      h3 {
-        margin: 12px 0;
-        @media (max-width: 440px) {
-          margin: 5px;
-        }
-      }
-      ul li {
-        margin-bottom: 12px;
-        list-style: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-
-    .pBottom {
-      width: 320px;
-      padding: 10px 0;
-    }
-  }
-  .footer-bottom {
-    border-top: 1px solid #9fabbc;
-    text-align: center;
-    padding: 30px;
-  }
+.pBottom {
+  width: 320px;
+  padding: 10px 0;
+}
+.footer-bottom {
+  border-top: 1px solid #9fabbc;
+  text-align: center;
+  padding: 2rem;
 }

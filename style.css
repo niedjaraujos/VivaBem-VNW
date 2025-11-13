@@ -8,7 +8,7 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: #ffffff;
-  height: 100vh;
+  min-height: 100vh;
 }
 body a {
   color: #ffffff;
@@ -17,6 +17,8 @@ body a {
 body h2 {
   font-size: 3rem;
   font-family: "Inter", sans-serif;
+  font-weight: 700;
+  text-align: center;
   background: linear-gradient(to left, #33cc73, #4247a2);
   -webkit-background-clip: text;
   background-clip: text;
@@ -29,41 +31,50 @@ header {
   height: 80vh;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
-header .header-content {
+
+.header-content {
   display: flex;
   flex-direction: column;
-  width: 1260px;
+  max-width: 1280px;
+  width: 100%;
+  width: 100%;
   margin: auto;
 }
-header .header-content nav {
+.header-content nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   margin: 70px 0;
   padding: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   border-radius: 50px;
+  box-shadow: 6px 6px 10px 1px rgba(0, 0, 0, 0.25);
   background: linear-gradient(to right, #4247a2 0%, #52b095 100%);
 }
-header .header-content nav img {
-  margin-left: -100px;
+.header-content nav img {
   width: 200px;
 }
-header .header-content nav .nav-links {
+
+.nav-links {
   display: flex;
+  justify-content: space-around;
   align-items: center;
   list-style: none;
-  gap: 40px;
   font-size: 1.5rem;
-  margin-left: -100px;
 }
-header .header-content .header-title {
-  width: 700px;
+.nav-links li a {
+  margin-right: 20px;
+}
+
+.header-title {
   display: flex;
   flex-direction: column;
+  width: 700px;
   gap: 20px;
 }
-header .header-content .header-title h1 {
+.header-title h1 {
   font-size: 3.5rem;
   background: linear-gradient(to left, #33cc73, #4247a2);
   -webkit-background-clip: text;
@@ -71,149 +82,216 @@ header .header-content .header-title h1 {
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
-header .header-content .header-title p {
+.header-title p {
   font-size: 2rem;
   font-weight: 400;
   width: 500px;
   margin-bottom: 40px;
 }
-header .header-content .header-title .header-btn a {
+.header-title .header-btn a {
   border-radius: 14px;
   padding: 0.7rem 3rem;
   font-size: 1.2rem;
+  transition: 0.3s;
 }
-header .header-content .header-title a:nth-child(1) {
+.header-title .header-btn a:hover {
+  box-shadow: 0 0 10px #1173d4;
+}
+.header-title a:nth-child(1) {
   background-color: #1173d4;
   border: 1px solid #1173d4;
   margin-right: 30px;
 }
-header .header-content .header-title a:nth-child(2) {
+.header-title a:nth-child(2) {
   border: 1px solid #1173d4;
   color: #1173d4;
 }
 
-main .cards-intro {
-  background-color: #f8f9fa;
-  padding: 100px;
-  font-family: "Inter", sans-serif;
-}
-@media (max-width: 440px) {
-  main .cards-intro {
-    padding: 20px;
+@media (max-width: 480px) {
+  header {
+    background: none;
+    background-attachment: scroll;
+  }
+  .header-content {
+    max-width: 480px;
+    text-align: center;
+  }
+  .header-content nav {
+    width: 90%;
+    margin: 1rem auto;
+    align-items: center;
+  }
+  .header-content nav img {
+    width: 87px;
+  }
+  .header-content nav .nav-links {
+    font-size: 1rem;
+  }
+  .header-content nav .nav-links li {
+    font-size: 0.875rem;
+    width: 96px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .header-content .header-title {
+    width: 90%;
+    margin: 30px auto 0;
+  }
+  .header-content .header-title h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 12px;
+  }
+  .header-content .header-title p {
+    width: 90%;
+    margin: 0 auto 20px;
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  .header-content .header-title .header-btn a {
+    padding: 1rem 0.7rem;
+    font-size: 1rem;
+    margin-right: 10px;
   }
 }
-main .cards-intro .cards-intro_import {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 50px;
+main .cards-intro {
+  background-color: #f8f9fa;
+  padding: 6rem;
+  font-family: "Inter", sans-serif;
 }
-main .cards-intro .cards-intro_import p {
+@media (max-width: 480px) {
+  main .cards-intro {
+    padding: 1.25rem;
+  }
+}
+
+.cards-intro_import {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 3rem;
+}
+.cards-intro_import p {
   text-align: center;
   width: 70%;
   font-size: 1.3rem;
 }
-@media (max-width: 440px) {
-  main .cards-intro .cards-intro_import p {
+@media (max-width: 480px) {
+  .cards-intro_import p {
     width: 100%;
     font-size: 1.1rem;
   }
 }
-main .cards-intro .cards-intro_import .cards-import {
+
+.cards-import {
   display: flex;
   gap: 50px;
 }
-@media (max-width: 440px) {
-  main .cards-intro .cards-intro_import .cards-import {
+@media (max-width: 480px) {
+  .cards-import {
     flex-direction: column;
     gap: 20px;
   }
 }
-main .cards-intro .cards-intro_import .cards-import .cards-import_card {
+
+.cards-import_card {
   width: 350px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   gap: 24px;
   background-color: #ffffff;
-  padding: 20px;
+  padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  transition: 0.5s;
 }
-@media (max-width: 440px) {
-  main .cards-intro .cards-intro_import .cards-import .cards-import_card {
+.cards-import_card:hover {
+  box-shadow: 0 0 10px #33cc73;
+}
+@media (max-width: 480px) {
+  .cards-import_card {
     width: 320px;
   }
 }
-main .cards-intro .cards-intro_import .cards-import .cards-import_card h3 {
+.cards-import_card h3 {
   font-size: 1.5rem;
 }
 
-main .preventivo-feminino,
-.preventivo-masculino {
+main .preventivo {
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 4rem 2rem;
 }
-@media (max-width: 440px) {
-  main .preventivo-feminino,
-  .preventivo-masculino {
+@media (max-width: 480px) {
+  main .preventivo {
     padding: 10px;
   }
 }
-main .preventivo-feminino .preventivo-container,
-.preventivo-masculino .preventivo-container {
-  width: 1280px;
+
+.preventivo-container {
+  max-width: 1280px;
+  width: 100%;
 }
-@media (max-width: 440px) {
-  main .preventivo-feminino .preventivo-container,
-  .preventivo-masculino .preventivo-container {
+@media (max-width: 480px) {
+  .preventivo-container {
     width: 90%;
     margin-inline: auto;
   }
 }
 
-main .preventivo-feminino {
+main .feminino {
   background-color: #fdefef;
 }
-main .preventivo-feminino h2 {
+main .feminino h2 {
   background: linear-gradient(to left, rgba(249, 1, 111, 0.54), rgba(147, 8, 133, 0.62), rgba(208, 56, 170, 0.75), rgb(133, 28, 135));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
+main .feminino .card:hover {
+  box-shadow: 0 0 10px rgba(249, 1, 111, 0.54);
+}
 
-main .preventivo-masculino {
+main .masculino {
   background-color: #f8f9fa;
 }
-main .preventivo-masculino h2 {
+main .masculino h2 {
   background: linear-gradient(to left, rgb(51, 115, 210), rgb(111, 149, 199), rgb(123, 181, 245), rgb(0, 116, 238), rgb(94, 167, 239));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
-main .preventivo-masculino .cards {
+main .masculino .cards {
   justify-content: center;
+}
+main .masculino .cards .card:hover {
+  box-shadow: 0 0 10px rgb(0, 116, 238);
 }
 
 main .cards {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 50px;
   margin-top: 50px;
 }
-@media (max-width: 440px) {
+@media (max-width: 480px) {
   main .cards {
     flex-direction: column;
     align-items: center;
   }
 }
-main .cards .card {
+
+.card {
   text-align: center;
   background-color: #ffffff;
   width: 300px;
@@ -221,64 +299,80 @@ main .cards .card {
   padding: 20px 10px;
   border-radius: 24px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.5s;
 }
-main .cards .card img {
+.card img {
   width: 105px;
   height: 105px;
   border-radius: 100px;
 }
-main .cards .card h3 {
+.card h3 {
   font-size: 1.5rem;
   margin-bottom: 30px;
 }
-main .cards .card ul {
+.card ul {
   margin-left: 20px;
 }
-main .cards .card ul li {
+.card ul li {
   text-align: left;
   margin-top: 10px;
 }
 
 main .cards-alertImport {
-  padding: 70px 100px;
+  padding: 4rem 6rem;
 }
-@media (max-width: 440px) {
+@media (max-width: 480px) {
   main .cards-alertImport {
     padding: 20px;
   }
 }
 main .cards-alertImport .alert-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   text-align: center;
   gap: 30px;
 }
-main .cards-alertImport .alert-container .cards-alerts {
+
+.cards-alerts {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
-@media (max-width: 440px) {
-  main .cards-alertImport .alert-container .cards-alerts {
+@media (max-width: 480px) {
+  .cards-alerts {
     flex-direction: column;
   }
 }
-main .cards-alertImport .alert-container .cards-alerts .pink {
+.cards-alerts .pink {
   color: #ad346a;
   background-color: #f9d5e5;
 }
-main .cards-alertImport .alert-container .cards-alerts .blue {
+.cards-alerts .pink:hover {
+  box-shadow: 0 0 10px #ad346a;
+}
+.cards-alerts .blue {
   color: #2769a3;
   background-color: #cfe2f3;
 }
-main .cards-alertImport .alert-container .cards-alerts .green {
+.cards-alerts .blue:hover {
+  box-shadow: 0 0 10px #2769a3;
+}
+.cards-alerts .green {
   color: #244a2d;
   background-color: #d4edda;
 }
-main .cards-alertImport .alert-container .cards-alerts .orange {
+.cards-alerts .green:hover {
+  box-shadow: 0 0 10px #244a2d;
+}
+.cards-alerts .orange {
   color: #976c00;
   background-color: #ffe9c2;
+}
+.cards-alerts .orange:hover {
+  box-shadow: 0 0 10px #976c00;
 }
 
 main .cards-alert_card {
@@ -288,8 +382,9 @@ main .cards-alert_card {
   display: flex;
   flex-direction: column;
   margin: 10px 40px;
+  transition: 0.5s;
 }
-@media (max-width: 440px) {
+@media (max-width: 480px) {
   main .cards-alert_card {
     width: 340px;
     padding: 10px;
@@ -298,20 +393,22 @@ main .cards-alert_card {
 main .cards-alert_card p {
   font-size: 1.22rem;
 }
-main .cards-alert_card .cards-alert_title {
+
+.cards-alert_title {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 8px;
   margin-bottom: 10px;
 }
-main .cards-alert_card .cards-alert_title img {
+.cards-alert_title img {
   width: 40px;
 }
-main .cards-alert_card .cards-alert_title h3 {
+.cards-alert_title h3 {
   font-size: 1.5rem;
 }
-@media (max-width: 440px) {
-  main .cards-alert_card .cards-alert_title h3 {
+@media (max-width: 480px) {
+  .cards-alert_title h3 {
     font-size: 1.25rem;
   }
 }
@@ -320,62 +417,65 @@ footer {
   background-color: #313461;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 2rem;
   color: #ffffff;
   font-family: "Poppins", sans-serif;
 }
-@media (max-width: 440px) {
+@media (max-width: 480px) {
   footer {
     align-items: center;
   }
 }
-footer .footer-top {
+
+.footer-top {
   display: flex;
   justify-content: space-evenly;
-  padding: 50px 0 14px 0;
+  padding: 3rem 0 0.875rem 0;
 }
-@media (max-width: 440px) {
-  footer .footer-top {
+@media (max-width: 480px) {
+  .footer-top {
     flex-direction: column;
     text-align: center;
-    gap: 30px;
+    gap: 2rem;
   }
 }
-footer .footer-top div {
+.footer-top div {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-footer .footer-top div img {
+.footer-top div img {
   width: 180px;
   margin-bottom: 8px;
 }
-@media (max-width: 440px) {
-  footer .footer-top div img {
+@media (max-width: 480px) {
+  .footer-top div img {
     margin: auto;
   }
 }
-footer .footer-top div h3 {
+.footer-top div h3 {
   margin: 12px 0;
 }
-@media (max-width: 440px) {
-  footer .footer-top div h3 {
+@media (max-width: 480px) {
+  .footer-top div h3 {
     margin: 5px;
   }
 }
-footer .footer-top div ul li {
+.footer-top div ul li {
   margin-bottom: 12px;
   list-style: none;
 }
-footer .footer-top div ul li:hover {
+.footer-top div ul li:hover {
   text-decoration: underline;
 }
-footer .footer-top .pBottom {
+
+.pBottom {
   width: 320px;
   padding: 10px 0;
 }
-footer .footer-bottom {
+
+.footer-bottom {
   border-top: 1px solid #9fabbc;
   text-align: center;
-  padding: 30px;
+  padding: 2rem;
 }/*# sourceMappingURL=style.css.map */

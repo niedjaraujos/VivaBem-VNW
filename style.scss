@@ -77,6 +77,7 @@ $tablet-width: 768px;
 @mixin shadow($shadow-value) {
   box-shadow: 0 0 10px $shadow-value;
 }
+// body e alguns estilos globais
 body {
   font-family: 'Roboto', sans-serif;
   background-color: $white;
@@ -97,6 +98,7 @@ body {
   }
 }
 
+//header e hero
 header {
   background-image: url('/assets/bannerHeader.png');
   height: 80vh;
@@ -105,14 +107,13 @@ header {
   background-attachment: fixed;
   background-position: center;
 }
-
 .header-content {
   @include column();
   @include width;
 
   nav {
     @include around;
-    margin: 70px 0;
+    margin: 4rem 0;
     padding: 10px 0;
     border-radius: 50px;
     box-shadow: 6px 6px 10px 1px rgba(0, 0, 0, 0.25);
@@ -151,7 +152,7 @@ header {
     font-size: 2rem;
     font-weight: 400;
     width: 500px;
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
   }
   .header-btn a {
     border-radius: 14px;
@@ -165,13 +166,14 @@ header {
   a:nth-child(1) {
     background-color: $color-blue;
     border: 1px solid $color-blue;
-    margin-right: 30px;
+    margin-right: 2rem;
   }
   a:nth-child(2) {
     border: 1px solid $color-blue;
     color: $color-blue;
   }
 }
+
 @include mobile {
   header {
     background: none;
@@ -204,7 +206,7 @@ header {
 
     .header-title {
       width: 90%;
-      margin: 30px auto 0;
+      margin: 2rem auto 0;
 
       h1 {
         font-size: 3rem;
@@ -228,14 +230,10 @@ header {
 
 //main
 //section exames de rotina
-main .cards-intro {
+.cards-intro {
   background-color: $bg-blue;
   padding: 6rem;
   font-family: 'Inter', sans-serif;
-
-  @include mobile {
-    padding: 1.25rem;
-  }
 }
 .cards-intro_import {
   @include center;
@@ -247,21 +245,13 @@ main .cards-intro {
     text-align: center;
     width: 70%;
     font-size: 1.3rem;
-    @include mobile {
-      width: 100%;
-      font-size: 1.1rem;
-    }
   }
 }
 .cards-import {
   display: flex;
-  gap: 50px;
-
-  @include mobile {
-    flex-direction: column;
-    gap: 20px;
-  }
+  gap: 3rem;
 }
+
 .cards-import_card {
   width: 350px;
   @include center;
@@ -275,16 +265,30 @@ main .cards-intro {
   &:hover {
     @include shadow($gradient-green);
   }
-  @include mobile {
-    width: 320px;
-  }
+
   h3 {
     font-size: 1.5rem;
   }
 }
+@include mobile {
+  .cards-intro {
+    padding: 1rem;
+  }
+  .cards-intro_import p {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+  .cards-import {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cards-import_card {
+    width: 320px;
+  }
+}
 
 //cards feminino e masculino
-main .preventivo {
+.preventivo {
   @include center;
   text-align: center;
   padding: 4rem 2rem;
@@ -301,7 +305,7 @@ main .preventivo {
     margin-inline: auto;
   }
 }
-main .feminino {
+.feminino {
   background-color: $bg-rose;
   h2 {
     @include gradient(
@@ -320,7 +324,7 @@ main .feminino {
     }
   }
 }
-main .masculino {
+.masculino {
   background-color: $bg-blue;
   h2 {
     @include gradient(
@@ -343,7 +347,7 @@ main .masculino {
     }
   }
 }
-main .cards {
+.cards {
   @include center;
   flex-wrap: wrap;
   gap: 50px;
@@ -383,11 +387,11 @@ main .cards {
 }
 
 //section alertas
-main .cards-alertImport {
+.cards-alertImport {
   padding: 4rem 6rem;
 
   @include mobile {
-    padding: 20px;
+    padding: 1rem;
   }
 
   .alert-container {
@@ -403,7 +407,6 @@ main .cards-alertImport {
 
   @include mobile {
     flex-direction: column;
-    padding: 2rem;
   }
 
   .pink {
@@ -436,7 +439,7 @@ main .cards-alertImport {
     }
   }
 }
-main .cards-alert_card {
+.cards-alert_card {
   max-width: 550px;
   border-radius: 12px;
   padding: 30px;
@@ -479,20 +482,12 @@ footer {
   gap: 2rem;
   color: $white;
   font-family: 'Poppins', sans-serif;
-  @include mobile {
-    align-items: center;
-  }
 }
 .footer-top {
   display: flex;
   justify-content: space-evenly;
   padding: 3rem 0 0.875rem 0;
 
-  @include mobile {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-  }
   div {
     @include column;
     gap: 12px;
@@ -500,15 +495,9 @@ footer {
     img {
       width: 180px;
       margin-bottom: 8px;
-      @include mobile {
-        margin: auto;
-      }
     }
     h3 {
       margin: 12px 0;
-      @include mobile {
-        margin: 5px;
-      }
     }
     ul li {
       margin-bottom: 12px;
@@ -527,4 +516,20 @@ footer {
   border-top: 1px solid #9fabbc;
   text-align: center;
   padding: 2rem;
+}
+@include mobile {
+  footer {
+    align-items: center;
+    .footer-top {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+    }
+    img {
+      margin: auto;
+    }
+    h3 {
+      margin: 5px;
+    }
+  }
 }

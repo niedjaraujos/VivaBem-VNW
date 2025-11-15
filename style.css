@@ -107,13 +107,36 @@ header {
   color: #1173d4;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
+  header {
+    height: 55vh;
+    background-attachment: scroll;
+    background-size: auto;
+    background-position: center;
+  }
+  header .header-content {
+    max-width: 95%;
+    text-align: left;
+  }
+}
+@media (max-width: 768px) {
   header {
     background: none;
     background-attachment: scroll;
   }
+  header .header-content {
+    max-width: 95%;
+    text-align: left;
+  }
+}
+@media (max-width: 480px) {
+  header {
+    background: none;
+    background-attachment: scroll;
+    height: 80vh;
+  }
   .header-content {
-    max-width: 480px;
+    max-width: 100%;
     text-align: center;
   }
   .header-content nav {
@@ -186,7 +209,7 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
   background-color: #ffffff;
   padding: 1.5rem;
   border-radius: 12px;
@@ -200,20 +223,30 @@ header {
   font-size: 1.5rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
   .cards-intro {
-    padding: 1rem;
+    padding: 2rem 1rem;
   }
+  .cards-intro .cards-import {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .cards-intro .cards-import .cards-import_card {
+    width: 45%;
+  }
+}
+@media (max-width: 480px) {
   .cards-intro_import p {
     width: 100%;
     font-size: 1.1rem;
   }
   .cards-import {
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
   }
-  .cards-import_card {
-    width: 320px;
+  .cards-import .cards-import_card {
+    width: 100%;
   }
 }
 .preventivo {
@@ -460,6 +493,19 @@ footer {
   padding: 2rem;
 }
 
+@media (max-width: 1024px) {
+  .footer-top {
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .footer-top {
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 3rem;
+  }
+}
 @media (max-width: 480px) {
   footer {
     align-items: center;

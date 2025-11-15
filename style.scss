@@ -29,7 +29,7 @@ $card-color-orange: #976c00;
 
 $mobile-width: 480px;
 $tablet-width: 768px;
-
+$desktop-width: 1024px;
 //mixins
 
 @mixin mobile {
@@ -44,6 +44,11 @@ $tablet-width: 768px;
   }
 }
 
+@mixin desktop {
+  @media (max-width: $desktop-width) {
+    @content;
+  }
+}
 @mixin width {
   max-width: 1280px;
   width: 100%;
@@ -108,7 +113,7 @@ header {
   background-position: center;
 }
 .header-content {
-  @include column();
+  @include column;
   @include width;
 
   nav {
@@ -173,14 +178,38 @@ header {
     color: $color-blue;
   }
 }
+@include desktop {
+  header {
+    height: 55vh;
+    background-attachment: scroll;
+    background-size: auto;
+    background-position: center;
+    .header-content {
+      max-width: 95%;
+      text-align: left;
+    }
+  }
+}
+@include tablet {
+  header {
+    background: none;
+    background-attachment: scroll;
+
+    .header-content {
+      max-width: 95%;
+      text-align: left;
+    }
+  }
+}
 
 @include mobile {
   header {
     background: none;
     background-attachment: scroll;
+    height: 80vh;
   }
   .header-content {
-    max-width: $mobile-width;
+    max-width: 100%;
     text-align: center;
 
     nav {
@@ -256,7 +285,7 @@ header {
   width: 350px;
   @include center;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
   background-color: $white;
   padding: 1.5rem;
   border-radius: 12px;
@@ -270,20 +299,44 @@ header {
     font-size: 1.5rem;
   }
 }
-@include mobile {
+@include desktop {
   .cards-intro {
-    padding: 1rem;
+    padding: 2rem 1rem;
+    .cards-import {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      .cards-import_card {
+        width: 45%;
+      }
+    }
   }
+}
+// @include tablet {
+//     .cards-intro {
+//     padding: 2 rem 1rem;
+//     .cards-import {
+//       justify-content: center;
+//       flex-wrap: wrap;
+//       gap: 1rem;
+//       .cards-import_card {
+//         width: 45%;
+//       }
+//     }
+//   }
+// }
+
+@include mobile {
   .cards-intro_import p {
     width: 100%;
     font-size: 1.1rem;
   }
   .cards-import {
     flex-direction: column;
-    gap: 20px;
-  }
-  .cards-import_card {
-    width: 320px;
+    align-items: center;
+    .cards-import_card {
+      width: 100%;
+    }
   }
 }
 
@@ -516,6 +569,19 @@ footer {
   border-top: 1px solid #9fabbc;
   text-align: center;
   padding: 2rem;
+}
+@include desktop {
+  .footer-top {
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+}
+@include tablet {
+  .footer-top {
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 3rem;
+  }
 }
 @include mobile {
   footer {
